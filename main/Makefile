@@ -1,5 +1,6 @@
 CC?=gcc
-CCFLAGS?=-Wall -Werror -g
+MODULE_INCS?=$(shell find ../modules/ -type d -not -wholename '../modules/' | awk '{print "-I" $$0}')
+CCFLAGS?=-Wall -Werror -g $(MODULE_INCS)
 LDFLAGS?=
 TARGET=../mod-test
 
