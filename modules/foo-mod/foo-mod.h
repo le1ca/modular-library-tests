@@ -7,14 +7,6 @@ typedef struct foo_obj_s {
     char param[FOO_PARAM_LEN];
 } foo_obj;
 
-/*
-__attribute__((constructor))
-void foo_init();
-
-__attribute__((destructor))
-void foo_destroy();
-*/
-
 void foo_set(const char s[]);
 void foo_hello();
 
