@@ -9,7 +9,7 @@ int main(int argc, char **argv){
     char *err;
 
     // load foo-mod library
-    if(!(foo_mod_hdl = dlopen("foo-mod.so", RTLD_LAZY))){
+    if(!(foo_mod_hdl = dlopen("./modules/foo-mod.so", RTLD_LAZY))){
         fprintf(stderr, "Error loading module: %s\n", dlerror());
         return 0;
     }
