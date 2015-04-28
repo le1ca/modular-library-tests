@@ -21,3 +21,11 @@ void module_call(char *fn_name, void *arg){
     module_entry *e = mt_get(fn_name);
     e->fun(arg);
 }
+
+void module_init(){
+    mt_init();
+}
+
+void module_destroy(){
+    mt_destroy();
+}
