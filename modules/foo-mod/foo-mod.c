@@ -1,25 +1,23 @@
-#include "foo-mod.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-foo_obj *f;
+char      module_name[]       = "foo-module";
+unsigned  module_func_ct      = 2;
+char     *module_func_names[] = { "foo_set", "foo_hello" };
 
 __attribute__((constructor))
 void foo_init(){
-    f = malloc(sizeof(foo_obj));
-    strncpy(f->param, "Hello, world!", FOO_PARAM_LEN);
+    
 }
 
 __attribute__((destructor))
 void foo_destroy(){
-    free(f);
+    
 }
 
-void foo_set(const char s[]){
-    strncpy(f->param, s, FOO_PARAM_LEN);
+void foo_set(void *arg){
+    printf("foo_set!\n");
 }
 
-void foo_hello(){
-    printf("%8p: %s\n", (void *) f, f->param);
+void foo_hello(void *arg){
+    printf("foo_hello!\n");
 }
