@@ -94,7 +94,16 @@ module_entry *mt_get(char* fn_name){
 
 void mt_destroy(){
     unsigned i;
-    for(i = 0; i < MODULE_TABLE_SIZE; i++){
-        
+    for(i = 0; i < module_table->size; i++){
+        list *l = module_table->row[i];
+        while(l != 0){
+            list *n = l->next;
+            mt_mod_rm_entry(((module_entry *) l->value)->module, l->value);
+            free(l->value);
+            free(l);
+            l = n;
+        }
     }
+    free(module_table->row);
+    free(module_table);
 }
