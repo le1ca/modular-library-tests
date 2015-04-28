@@ -20,7 +20,7 @@ typedef struct table_s {
     table_hash  hash;
     table_comp  comp;
     unsigned    size;
-    list       *row[0];
+    list      **row;
 } table;
 
 /* functions */
