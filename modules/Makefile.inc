@@ -1,5 +1,5 @@
 CC?=gcc
-CCFLAGS?=-Wall -Werror -g -fPIC
+CCFLAGS?=-Wall -Werror -g -fPIC -I../../main/
 LDFLAGS?=-shared
 
 SOURCES?=$(wildcard *.c)
